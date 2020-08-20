@@ -4,8 +4,11 @@ use_frameworks!
 
 target 'BaseDemo' do
   # Comment the next line if you don't want to use dynamic frameworks
-	platform :ios, '10.0'
-	pod 'WebexSDK'
+  #platform :ios, '10.0'
+  #pod 'WebexSDK'
+  pod 'NVActivityIndicatorView'
+  #pod 'PageMenu'
+  pod 'SkyFloatingLabelTextField'
   # Pods for BaseDemo
 
   target 'BaseDemoTests' do
@@ -21,6 +24,6 @@ end
 
 
 target 'MyWebexAppBroadcastExtension' do 
-	platform :ios, '11.2'
-	pod 'WebexBroadcastExtensionKit'
+  #platform :ios, '11.2'
+  #pod 'WebexBroadcastExtensionKit'
 end

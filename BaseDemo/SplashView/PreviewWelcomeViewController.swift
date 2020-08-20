@@ -10,10 +10,15 @@ import UIKit
 
 class PreviewWelcomeViewController: UIViewController {
 
+    @IBOutlet weak var vLarge: UIView!
     @IBOutlet weak var ivUser : UIImageView!
     @IBOutlet weak var constraintIvUser: NSLayoutConstraint!
-    @IBOutlet weak var ivStick: UIImageView!
+    @IBOutlet weak var ivAgree: UIImageView!
     @IBOutlet weak var vCircle: UIView!
+    
+    deinit {
+        print("deinit")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +28,59 @@ class PreviewWelcomeViewController: UIViewController {
     }
     
     func setupView(){
-        ivStick.isHidden = true
-        let color = UIColor(hex: "#0AB2A8")
+        
+        ivAgree.isHidden = true
+        
+        let color = UIColor(hex: BASEColor.MainHexColor)
         print(color!)
+        
         vCircle.backgroundColor = color
         vCircle.layer.cornerRadius = vCircle.bounds.width/2
         
+        vLarge.backgroundColor = .clear
+        vLarge.layer.borderWidth = 10
+        vLarge.layer.borderColor = UIColor(red: 217/255, green: 243/255, blue: 241/255, alpha: 1.0).cgColor // 217 243 241
+        vLarge.layer.cornerRadius = vLarge.bounds.width/2
+        
+        ivUser.layer.cornerRadius = ivUser.bounds.height/2
+        ivAgree.layer.cornerRadius = ivAgree.bounds.height/2
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        self.animationStick()
+        
+    }
+    
+    func navigationToMainController() {
+        let tabbar = TabMenuController(nibName: "CustomTabbar", bundle: nil)
+        
+        let dashboardVC = DashboardViewController()
+        let ticketVC =  TicketViewController()
+        
+        let navDash = UINavigationController(rootViewController: dashboardVC)
+        let navTicket = UINavigationController(rootViewController: ticketVC)
+        
+//        cTabbar.viewControllers = [navDash, navTicket]
+//        let dashItem = cTabbar.tabBar.items?.first
+//        let ticketItem = cTabbar.tabBar.items?.last
+        
+//        dashItem?.title = "Dashboard"
+//        dashItem?.image = UIImage(named: "icons8-dashboard-24")
+//        
+//        ticketItem?.title = "Ticket"
+//        ticketItem?.image = UIImage(named: "icons8-movie-ticket-24")
+        
+        present(tabbar, animated: false) {
+            print("completed preview")
+        }
+
+    }
+    
+    func animationStick() {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             
             self.view.layoutIfNeeded()
             self.constraintIvUser.constant -= 50
@@ -42,14 +88,15 @@ class PreviewWelcomeViewController: UIViewController {
             UIView.animate(withDuration: 0.35, animations: {
                 self.view.layoutIfNeeded()
             }, completion: { (success) in
-                self.ivStick.isHidden = false
+                self.ivAgree.isHidden = false
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0, execute: {
+                    self.navigationToMainController()
+                    
+                })
             })
             
         }
-    }
-    
-    func animationStick() {
-        
     }
 
 

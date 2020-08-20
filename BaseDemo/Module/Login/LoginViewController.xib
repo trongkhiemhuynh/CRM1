@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="BaseDemo" customModuleProvider="target">
             <connections>
+                <outlet property="tfPassword" destination="fRy-Wt-JQT" id="7P9-Yx-e86"/>
+                <outlet property="tfUserName" destination="8sH-t6-iTI" id="pPu-U6-xIC"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jvi-hb-rbj"/>
             </connections>
         </placeholder>
@@ -54,19 +56,29 @@
                                 <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="LT5-4c-5Tr"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sH-t6-iTI">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sH-t6-iTI" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                             <rect key="frame" x="40" y="210" width="240" height="50"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="S0G-aW-b7a"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                    <color key="value" red="0.039215686270000001" green="0.69803921570000005" blue="0.6588235294" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRy-Wt-JQT">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRy-Wt-JQT" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                             <rect key="frame" x="40" y="285" width="240" height="50"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="8eu-kX-YaV"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                    <color key="value" red="0.039215686270000001" green="0.69803921570000005" blue="0.6588235294" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMG-F9-DJ7">
                             <rect key="frame" x="175" y="418" width="105" height="27"/>
@@ -75,6 +87,14 @@
                                 <color key="titleColor" red="0.039215686270000001" green="0.69803921570000005" blue="0.6588235294" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00h-t9-F0y">
+                            <rect key="frame" x="12" y="421.5" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="H46-rV-erE"/>
+                                <constraint firstAttribute="height" constant="20" id="Wrq-H7-sTg"/>
+                            </constraints>
+                            <state key="normal" image="icons8-unchecked-checkbox-50"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -82,6 +102,7 @@
                         <constraint firstItem="XMG-F9-DJ7" firstAttribute="trailing" secondItem="hAc-TF-Iu7" secondAttribute="trailing" id="0o2-Zn-Hkn"/>
                         <constraint firstItem="8sH-t6-iTI" firstAttribute="centerX" secondItem="6mc-e4-YjV" secondAttribute="centerX" id="32a-bc-KdT"/>
                         <constraint firstAttribute="trailing" secondItem="arY-85-cua" secondAttribute="trailing" id="5sV-Fp-78x"/>
+                        <constraint firstItem="00h-t9-F0y" firstAttribute="centerY" secondItem="vvQ-0X-YN3" secondAttribute="centerY" id="68p-86-gyD"/>
                         <constraint firstItem="vvQ-0X-YN3" firstAttribute="leading" secondItem="hAc-TF-Iu7" secondAttribute="leading" id="GoM-lD-I1M"/>
                         <constraint firstItem="TLE-Ou-9OW" firstAttribute="centerX" secondItem="6mc-e4-YjV" secondAttribute="centerX" id="JXx-oV-rGu"/>
                         <constraint firstAttribute="bottom" secondItem="arY-85-cua" secondAttribute="bottom" id="KEq-8B-b1x"/>
@@ -92,6 +113,7 @@
                         <constraint firstAttribute="trailing" secondItem="hAc-TF-Iu7" secondAttribute="trailing" constant="40" id="U0n-Fs-Crp"/>
                         <constraint firstAttribute="trailing" secondItem="fRy-Wt-JQT" secondAttribute="trailing" constant="40" id="cxD-3L-e6B"/>
                         <constraint firstAttribute="trailing" secondItem="8sH-t6-iTI" secondAttribute="trailing" constant="40" id="eFZ-UN-hmm"/>
+                        <constraint firstItem="vvQ-0X-YN3" firstAttribute="leading" secondItem="00h-t9-F0y" secondAttribute="trailing" constant="8" id="eop-Uz-h8j"/>
                         <constraint firstItem="8sH-t6-iTI" firstAttribute="top" secondItem="TLE-Ou-9OW" secondAttribute="bottom" constant="55" id="f34-bZ-Use"/>
                         <constraint firstItem="vvQ-0X-YN3" firstAttribute="top" secondItem="hAc-TF-Iu7" secondAttribute="bottom" constant="8" id="fkb-zc-pgw"/>
                         <constraint firstItem="8sH-t6-iTI" firstAttribute="leading" secondItem="6mc-e4-YjV" secondAttribute="leading" constant="40" id="oS6-MA-6Dj"/>
@@ -121,6 +143,7 @@
     </objects>
     <resources>
         <image name="105" width="806" height="682"/>
+        <image name="icons8-unchecked-checkbox-50" width="50" height="50"/>
         <image name="logo" width="163" height="55"/>
     </resources>
 </document>

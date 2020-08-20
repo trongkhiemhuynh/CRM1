@@ -16,9 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let preVC = PreviewWelcomeViewController()
+//        let preVC = PreviewWelcomeViewController()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
         let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
         
+        
+//        let nav = UINavigationController(rootViewController: loginVC)
+//        nav.navigationBar.isTranslucent = false
         window?.rootViewController = loginVC
         
         window?.makeKeyAndVisible()
